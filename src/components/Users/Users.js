@@ -2,17 +2,17 @@ import styles from "./Users.module.css";
 import Card from "../UI/Card";
 
 function Users(props) {
-  const users = props.data.map((user) => {
-    return (
-      <li>
-        {user.name} {user.age} years old
-      </li>
-    );
-  });
+  const isEmpty = props.data.length === 0;
+  const users = props.data.map((user) => (
+    <li key={user.id}>
+      {user.name} {user.age} years old
+    </li>
+  ));
 
   return (
     <Card className={styles.users}>
-      <ul>{users}</ul>
+      {isEmpty && <p>No data found</p>}
+      {!isEmpty && <ul>{users}</ul>}
     </Card>
   );
 }
