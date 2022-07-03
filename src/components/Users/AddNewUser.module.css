@@ -1,0 +1,17 @@
+.new-user-form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.new-user-form label {
+  color: #ccc;
+}
+
+.new-user-form input {
+  width: 200px;
+  font: inherit;
+}
+
+.new-user-form button {
+  width: 100px;
+}
