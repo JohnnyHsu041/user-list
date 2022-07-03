@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./AddNewUser.module.css";
 import Card from "../UI/Card";
+import Button from "../UI/Button";
 
 function AddNewUser(props) {
   const [enteredUsername, setEnteredUsername] = useState("");
@@ -8,6 +9,15 @@ function AddNewUser(props) {
 
   const addNewUserHandler = (event) => {
     event.preventDefault();
+
+    if (
+      enteredUsername.trim().length === 0 ||
+      enteredAge.toString().trim().length === 0
+    ) {
+      return;
+    }
+
+    if (+enteredAge < 1) return;
 
     const id = Math.random().toString();
     const newUserInfo = {
@@ -18,7 +28,6 @@ function AddNewUser(props) {
 
     props.onSaveNewUser(newUserInfo);
 
-    // two-way binding
     setEnteredUsername("");
     setEnteredAge("");
   };
@@ -32,7 +41,7 @@ function AddNewUser(props) {
   };
 
   return (
-    <Card>
+    <Card className={styles.input}>
       <form onSubmit={addNewUserHandler} className={styles["new-user-form"]}>
         <label htmlFor="username">Username</label>
         <input
@@ -50,7 +59,7 @@ function AddNewUser(props) {
           value={enteredAge}
         ></input>
 
-        <button type="submit">Add user</button>
+        <Button type="submit">Add user</Button>
       </form>
     </Card>
   );
