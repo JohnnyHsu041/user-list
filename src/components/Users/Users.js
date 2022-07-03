@@ -1,12 +1,20 @@
+import styles from "./Users.module.css";
 import Card from "../UI/Card";
-import User from "./UserItem";
 
 function Users(props) {
-  const users = [...props.data].map((user) => {
-    return <User key={user.id} name={user.name} age={user.age} />;
+  const users = props.data.map((user) => {
+    return (
+      <li>
+        {user.name} {user.age} years old
+      </li>
+    );
   });
 
-  return <Card>{users}</Card>;
+  return (
+    <Card className={styles.users}>
+      <ul>{users}</ul>
+    </Card>
+  );
 }
 
 export default Users;
