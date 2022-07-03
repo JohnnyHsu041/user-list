@@ -9,8 +9,18 @@ function AddNewUser(props) {
   const addNewUserHandler = (event) => {
     event.preventDefault();
 
-    const newUserInfo = [enteredUsername, enteredAge];
-    console.log(newUserInfo);
+    const id = Math.random().toString();
+    const newUserInfo = {
+      id,
+      name: enteredUsername,
+      age: enteredAge,
+    };
+
+    props.onSaveNewUser(newUserInfo);
+
+    // two-way binding
+    setEnteredUsername("");
+    setEnteredAge("");
   };
 
   const addUsernameHandler = (event) => {
@@ -25,10 +35,20 @@ function AddNewUser(props) {
     <Card>
       <form onSubmit={addNewUserHandler} className={styles["new-user-form"]}>
         <label htmlFor="username">Username</label>
-        <input onChange={addUsernameHandler} id="username" type="text"></input>
+        <input
+          onChange={addUsernameHandler}
+          id="username"
+          type="text"
+          value={enteredUsername}
+        ></input>
 
         <label htmlFor="age">Age</label>
-        <input onChange={addAgeHandler} id="age" type="number"></input>
+        <input
+          onChange={addAgeHandler}
+          id="age"
+          type="number"
+          value={enteredAge}
+        ></input>
 
         <button type="submit">Add user</button>
       </form>

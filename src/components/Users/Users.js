@@ -2,15 +2,11 @@ import Card from "../UI/Card";
 import User from "./UserItem";
 
 function Users(props) {
-  const usersData = [...props.dataPoints];
+  const users = [...props.data].map((user) => {
+    return <User key={user.id} name={user.name} age={user.age} />;
+  });
 
-  return (
-    <Card>
-      <User info={usersData} />
-      <User />
-      <User />
-    </Card>
-  );
+  return <Card>{users}</Card>;
 }
 
 export default Users;
