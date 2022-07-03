@@ -4,7 +4,7 @@
 }
 
 .new-user-form label {
-  color: #ccc;
+  color: black;
 }
 
 .new-user-form input {
@@ -13,5 +13,6 @@
 }
 
 .new-user-form button {
+  margin-top: 10px;
   width: 100px;
 }

@@ -24,13 +24,13 @@ function AddNewUser(props) {
   return (
     <Card>
       <form onSubmit={addNewUserHandler} className={styles["new-user-form"]}>
-        <label htmlFor="username">使用者名稱：</label>
+        <label htmlFor="username">Username</label>
         <input onChange={addUsernameHandler} id="username" type="text"></input>
 
-        <label htmlFor="age">年齡：</label>
+        <label htmlFor="age">Age</label>
         <input onChange={addAgeHandler} id="age" type="number"></input>
 
-        <button type="submit">新增使用者</button>
+        <button type="submit">Add user</button>
       </form>
     </Card>
   );
