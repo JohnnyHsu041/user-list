@@ -5,7 +5,7 @@ function Users(props) {
   const isEmpty = props.data.length === 0;
   const users = props.data.map((user) => (
     <li key={user.id}>
-      {user.name} {user.age} years old
+      {user.name} ({user.age} years old)
     </li>
   ));
 
